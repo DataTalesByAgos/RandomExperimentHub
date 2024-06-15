@@ -35,20 +35,26 @@ print('My sortedDictionary: ',t,'\n')
 for k,v in sorted(d.items()):
     print(k,v)
  """
-text = open('sample.txt')
+text = open('sample.txt','r')
 counts = dict()
 
 for line in text:
     words = line.split()
-    for word in words:
-        counts[word]= counts.get(word,0) +1
-lst = list()
-for k,v in counts.items():
-    newtup = (v,k)
-    lst.append(newtup)
-    
-lst = sorted(lst, reverse=True)
+    for i,word in enumerate(words):
+        if word == 'the':
+            start_index = max(0,i-2)
+            end_index = min(len(words),i+3)
+            context_words = words[start_index:end_index]
+            context_line = ' '.join(context_words)
+            print(context_line)
+ 
+print('\n\n')           
+lst = sorted([(k,v) for v,k in counts.items()], reverse =True)
 
 for v,k in lst[:10]:
     print(k,v)
-    
+ 
+d = {'y':99,'a':10,'c':22,'b':1,'z':3,'h':44}
+
+print(sorted([(v,k) for k,v in d.items()]))
+print(sorted([(k,v) for k,v in d.items()]))
