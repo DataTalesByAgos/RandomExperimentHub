@@ -23,4 +23,14 @@ target = input('Enter a letter to search for coincides: ')
 
 positions = [i for i, val in enumerate(arr) if val == target]
 
-print(positions)
+print(positions,'\n\n')
+
+
+d = {'y':99,'a':10,'c':22,'b':1,'z':3,'h':44}
+print('My dictionary: ',d,'\n')
+
+t = sorted(d.items())
+print('My sortedDictionary: ',t,'\n')
+
+for k,v in sorted(d.items()):
+    print(k,v)
