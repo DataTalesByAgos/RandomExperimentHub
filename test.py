@@ -9,7 +9,7 @@ for e in range(len(myList)):
     print('\n --------------- \n Function: ', myList[e])
     print(myList[e].__doc__,' \n --------------\n \n')
 
- """
+
  
 arr = [
     "a",
@@ -34,3 +34,21 @@ print('My sortedDictionary: ',t,'\n')
 
 for k,v in sorted(d.items()):
     print(k,v)
+ """
+text = open('sample.txt')
+counts = dict()
+
+for line in text:
+    words = line.split()
+    for word in words:
+        counts[word]= counts.get(word,0) +1
+lst = list()
+for k,v in counts.items():
+    newtup = (v,k)
+    lst.append(newtup)
+    
+lst = sorted(lst, reverse=True)
+
+for v,k in lst[:10]:
+    print(k,v)
+    
