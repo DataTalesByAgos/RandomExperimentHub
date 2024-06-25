@@ -1,6 +1,7 @@
 def parse_fraction(fraction):
     try:
         x, y = map(int, fraction.split('/'))
+        #   parse_fraction = lambda frac: map(int, frac.split('/')) 
         if y == 0:
             raise ZeroDivisionError
         if x > y:
