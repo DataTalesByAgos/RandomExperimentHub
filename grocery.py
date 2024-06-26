@@ -6,30 +6,21 @@ each line with the number of times the user inputted that item. No need to plura
 Treat the user’s input case-insensitively.
 
 '''
-items = []
-
 def main():
     count = {}
-    res = []
 
     while True:
         try:
             entry = input("").upper()
             if entry:
-                if entry in count:
-                    count[entry] += 1
-                else:
-                    count[entry] = 1
+                count[entry] = count.get(entry, 0) + 1
         except EOFError:
             break
 
-    for e, total in count.items():
-        res.append(f"{total} {e}")
+    sorted_items = sorted(count.items())
 
-    res.sort(key= lambda x: x.split(" ", 1)[1])
-
-    for e in res:
-        print(e)
+    for item, total in sorted_items:
+        print(f"{total} {item}")
 
 if __name__ == "__main__":
     main()
